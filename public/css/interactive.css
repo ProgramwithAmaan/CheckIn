@@ -1,0 +1,153 @@
+/* Interactive Effects - Enhanced Styling */
+
+/* Headings Animation */
+h3, h4, h5 {
+    transition: all 0.3s ease;
+    font-weight: 700;
+}
+
+/* Fieldset Interactive */
+fieldset {
+    transition: all 0.3s ease;
+}
+
+fieldset:hover {
+    transform: scale(1.02);
+}
+
+/* Map Enhancement */
+#map {
+    transition: all 0.3s ease;
+    border-radius: 0.8rem;
+}
+
+#map:hover {
+    box-shadow: 0 8px 24px rgba(254, 66, 77, 0.2);
+}
+
+/* Row hover effect */
+.row {
+    transition: all 0.3s ease;
+}
+
+/* Button group effects */
+.btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth page transitions */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container > * {
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Input focus pulse effect */
+.form-control:focus,
+.form-select:focus {
+    animation: focusPulse 0.3s ease-out;
+}
+
+@keyframes focusPulse {
+    0% {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 0.1rem rgba(254, 66, 77, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.1);
+    }
+}
+
+/* Card stagger effect on load */
+.listing-card {
+    animation: cardFadeIn 0.6s ease-out backwards;
+}
+
+.listing-card:nth-child(1) { animation-delay: 0.1s; }
+.listing-card:nth-child(2) { animation-delay: 0.2s; }
+.listing-card:nth-child(3) { animation-delay: 0.3s; }
+.listing-card:nth-child(n+4) { animation-delay: calc(0.1s * (var(--index, 4))); }
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Review card hover effect */
+.card[class*="col"] {
+    animation: reviewCardFadeIn 0.6s ease-out backwards;
+}
+
+.card[class*="col"]:nth-child(1) { animation-delay: 0.2s; }
+.card[class*="col"]:nth-child(2) { animation-delay: 0.35s; }
+.card[class*="col"]:nth-child(3) { animation-delay: 0.5s; }
+
+@keyframes reviewCardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Subtle glow on interaction */
+.btn-search:active,
+.add-btn:active,
+.edit-btn:active {
+    filter: brightness(0.95);
+}
+
+/* Star rating hover effect */
+.starability-result:hover {
+    filter: brightness(1.1);
+}
+
+/* Loading state animation */
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* Link underline animation */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fe424d;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
